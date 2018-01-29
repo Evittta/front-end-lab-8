@@ -1,0 +1,91 @@
+body {
+  background: $body-color;
+  color: $text-color;
+}
+#content {
+  max-width: $max-width;
+  margin: auto;
+  background: $bg-color;
+  padding: 20px ;
+}
+img {
+  padding: 2px;
+  border: 2px solid $base-color;
+
+  &.img-left {
+    float: left;
+    margin: 0 20px 10px 0;
+  }
+  &.img-right {
+    float: right;
+    margin: 0 0 5px 10px;
+  }
+}
+h1 {
+  text-align: center;
+  margin: 0;
+  text-transform: $text-transform;
+}
+h1,
+h2 {
+  color: $base-color;
+}
+.brief {
+  display: block;
+  width: 40%;
+  background-color: bisque;
+  float: left;
+  padding: 20px;
+  margin: 0 20px 10px 0;
+}
+caption {
+  text-align: right;
+}
+table {
+  border-collapse: collapse;
+  background: $bg-table-color;
+  margin-bottom: 50px;
+  th {
+    background: $th-color;
+    text-transform: uppercase;
+    font-weight: normal;
+    text-align: left;
+    padding: 9px 15px;
+  }
+  td {
+    padding: 7px 15px;
+    border-bottom: 1px solid $th-color;
+  }
+}
+form {
+  .item {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: 1fr 1fr;
+  }
+  label {
+    text-transform: uppercase;
+    color: $h2color;
+  }
+  input,
+  textarea {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid $th-color;
+    padding: 4px;
+  }
+  textarea {
+    height: 150px;
+  }
+  button {
+    width: 240px;
+    height: 50px;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    border: 1px solid $bt-color;
+    color: $bt-color;
+    background: $bg-color;
+    margin-bottom: 15px;
+  }
+}
