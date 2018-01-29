@@ -38,25 +38,37 @@ h2 {
   padding: 20px;
   margin: 0 20px 10px 0;
 }
-caption {
-  text-align: right;
-}
+
 table {
   border-collapse: collapse;
-  background: $bg-table-color;
+  background: $table-bg-color;
   margin-bottom: 50px;
+
   th {
-    background: $th-color;
+    background: $table-secondary-color;
     text-transform: uppercase;
     font-weight: normal;
     text-align: left;
     padding: 9px 15px;
+    border-right: 2px solid #fff;
+
+    &:last-of-type {
+      border: none;
+    }
   }
   td {
     padding: 7px 15px;
-    border-bottom: 1px solid $th-color;
+    border-bottom: 1px solid $table-secondary-color;
+  }
+  caption {
+    text-align: right;
+  }
+  th,
+  caption {
+    color: #000;
   }
 }
+
 a {
   @if $bg-color != #fff {
     &:link {
@@ -88,7 +100,7 @@ form {
     width: 100%;
     margin-top: 5px;
     margin-bottom: 15px;
-    border: 1px solid $th-color;
+    border: 1px solid $table-secondary-color;
     padding: 4px;
   }
   textarea {

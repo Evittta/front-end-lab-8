@@ -35,9 +35,6 @@ h2 {
   padding: 20px;
   margin: 0 20px 10px 0; }
 
-caption {
-  text-align: right; }
-
 table {
   border-collapse: collapse;
   background: #fff;
@@ -47,10 +44,18 @@ table {
     text-transform: uppercase;
     font-weight: normal;
     text-align: left;
-    padding: 9px 15px; }
+    padding: 9px 15px;
+    border-right: 2px solid #fff; }
+    table th:last-of-type {
+      border: none; }
   table td {
     padding: 7px 15px;
     border-bottom: 1px solid #e0e0e0; }
+  table caption {
+    text-align: right; }
+  table th,
+  table caption {
+    color: #000; }
 
 form .item {
   display: grid;
