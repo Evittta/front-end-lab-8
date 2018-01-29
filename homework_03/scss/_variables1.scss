@@ -16,3 +16,6 @@ $bt-color: #3d70a1;
 $text-color: #000;
 $text-transform: capitalize;
 $bg-table-color: #fff;
+$base-color-light: lighten($base-color, 15%);
+$base-color-dark: darken($base-color, 10%);
+$base-color-desaturate: desaturate($base-color, 20%);

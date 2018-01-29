@@ -6,7 +6,7 @@ body {
   max-width: $max-width;
   margin: auto;
   background: $bg-color;
-  padding: 20px ;
+  padding: 20px;
 }
 img {
   padding: 2px;
@@ -55,6 +55,22 @@ table {
   td {
     padding: 7px 15px;
     border-bottom: 1px solid $th-color;
+  }
+}
+a {
+  @if $bg-color != #fff {
+    &:link {
+      color: $base-color;
+    }
+    &:hover {
+      color: $base-color-light;
+    }
+    &:active {
+      color: $base-color-dark;
+    }
+    &:visited {
+      color: $base-color-desaturate;
+    }
   }
 }
 form {

@@ -52,6 +52,15 @@ table {
     padding: 7px 15px;
     border-bottom: 1px solid #94a34e; }
 
+a:link {
+  color: #fccd10; }
+a:hover {
+  color: #fddd5c; }
+a:active {
+  color: #d6ac03; }
+a:visited {
+  color: #e4be28; }
+
 form .item {
   display: grid;
   grid-gap: 16px;
