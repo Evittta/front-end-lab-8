@@ -7,7 +7,7 @@ body {
   color: $text-color;
 }
 #content {
-  max-width: $max-width;
+  max-width: 950px;
   margin: auto;
   background: $bg-color;
   padding: 20px;
@@ -92,7 +92,7 @@ form {
   }
   label {
     text-transform: uppercase;
-    color: $h2color;
+    color: $label-color;
   }
   input,
   textarea {

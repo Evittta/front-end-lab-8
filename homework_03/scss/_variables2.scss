@@ -1,23 +1,15 @@
-$h2-colo: rgba(198, 238, 252, 0.53);
-$h2-colo: #fff178;
-$h2-colr: #3b3b3b;
-$h2-coor: #fccd10;
-$h2-clor: #94a34e;
-$h2-olor: #677d01;
-$h2color: #f5c70f;
-
 $base-color: #fccd10;
+$base-color-light: lighten($base-color, 15%);
+$base-color-dark: darken($base-color, 10%);
+$base-color-desaturate: desaturate($base-color, 20%);
 $body-color: rgba(198, 238, 252, 0.53);
-$max-width: 950px;
 $bg-color: #3b3b3b;
 $text-color: #fff;
 $bt-color: #f5c70f;
 $text-transform: uppercase;
 $table-bg-color: #677d01;
 $table-secondary-color: #94a34e;
-$base-color-light: lighten($base-color, 15%);
-$base-color-dark: darken($base-color, 10%);
-$base-color-desaturate: desaturate($base-color, 20%);
+$label-color: $bt-color;
 $brief-width: 96%;
 $brief-margin: 0 0 40px 0;
 $brief-color: #fff178;
