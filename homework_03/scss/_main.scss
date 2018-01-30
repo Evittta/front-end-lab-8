@@ -1,4 +1,4 @@
-@mixin img-place($float, $margin...) {
+@mixin block-place($float, $margin...) {
   float: $float;
   margin: $margin;
 }
@@ -17,10 +17,10 @@ img {
   border: 2px solid $base-color;
 
   &.img-left {
-    @include img-place(left, 0 20px 10px 0);
+    @include block-place(left, 0 20px 10px 0);
   }
   &.img-right {
-    @include img-place(right, 0 0 5px 10px);
+    @include block-place(right, 0 0 5px 10px);
   }
 }
 h1 {
@@ -33,11 +33,11 @@ h2 {
   color: $base-color;
 }
 .brief {
-  width: 40%;
-  background-color: bisque;
-  float: left;
+  @include block-place(left, $brief-margin);
+  width: $brief-width;
+  background-color: $brief-color;
   padding: 20px;
-  margin: 0 20px 10px 0;
+  color: #000;
 }
 table {
   border-collapse: collapse;

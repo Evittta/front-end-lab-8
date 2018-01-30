@@ -28,11 +28,12 @@ h2 {
   color: #893c00; }
 
 .brief {
-  width: 40%;
-  background-color: bisque;
   float: left;
+  margin: 0 20px 10px 0;
+  width: 40%;
+  background-color: #fadcba;
   padding: 20px;
-  margin: 0 20px 10px 0; }
+  color: #000; }
 
 table {
   border-collapse: collapse;
