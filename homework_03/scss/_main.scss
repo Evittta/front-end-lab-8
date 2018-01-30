@@ -1,3 +1,7 @@
+@mixin img-place($float, $margin...) {
+  float: $float;
+  margin: $margin;
+}
 body {
   background: $body-color;
   color: $text-color;
@@ -13,12 +17,10 @@ img {
   border: 2px solid $base-color;
 
   &.img-left {
-    float: left;
-    margin: 0 20px 10px 0;
+    @include img-place(left, 0 20px 10px 0);
   }
   &.img-right {
-    float: right;
-    margin: 0 0 5px 10px;
+    @include img-place(right, 0 0 5px 10px);
   }
 }
 h1 {
@@ -31,14 +33,12 @@ h2 {
   color: $base-color;
 }
 .brief {
-  display: block;
   width: 40%;
   background-color: bisque;
   float: left;
   padding: 20px;
   margin: 0 20px 10px 0;
 }
-
 table {
   border-collapse: collapse;
   background: $table-bg-color;
@@ -68,7 +68,6 @@ table {
     color: #000;
   }
 }
-
 a {
   @if $bg-color != #fff {
     &:link {
