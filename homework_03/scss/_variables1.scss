@@ -1,7 +1,7 @@
 $base-color: #893c00;
-$base-color-light: lighten($base-color, 15%);
-$base-color-dark: darken($base-color, 10%);
-$base-color-desaturate: desaturate($base-color, 20%);
+$base-light-color: lighten($base-color, 15%);
+$base-dark-color: darken($base-color, 10%);
+$base-desaturate-color: desaturate($base-color, 20%);
 $body-color: #dcbb9a;
 $bg-color: #fff;
 $text-color: #000;
