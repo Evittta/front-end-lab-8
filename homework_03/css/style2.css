@@ -52,12 +52,12 @@ body {
       color: #000; }
   #content a:link {
     color: #fccd10; }
+  #content a:visited {
+    color: #e4be28; }
   #content a:hover {
     color: #fddd5c; }
   #content a:active {
     color: #d6ac03; }
-  #content a:visited {
-    color: #e4be28; }
   #content form .item {
     display: grid;
     grid-gap: 16px;

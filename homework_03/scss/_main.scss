@@ -9,6 +9,11 @@ $table-caption-color: null !default;
   background-color: $background-color;
   color: $text-color;
 }
+@mixin link-color($state, $link-color) {
+  &:#{$state} {
+    color: $link-color;
+  }
+}
 
 body {
   @include content-color($body-color, $text-color);
@@ -72,18 +77,10 @@ body {
   }
   a {
     @if $bg-color != #fff {
-      &:link {
-        color: $base-color;
-      }
-      &:hover {
-        color: $base-color-light;
-      }
-      &:active {
-        color: $base-color-dark;
-      }
-      &:visited {
-        color: $base-color-desaturate;
-      }
+      @include link-color("link", $base-color);
+      @include link-color("visited", $base-color-desaturate);
+      @include link-color("hover", $base-color-light);
+      @include link-color("active", $base-color-dark);
     }
   }
   form {
