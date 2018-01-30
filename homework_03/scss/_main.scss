@@ -2,85 +2,88 @@
   float: $float;
   margin: $margin;
 }
-body {
-  background: $body-color;
+@mixin content-color($background-color, $text-color) {
+  background-color: $background-color;
   color: $text-color;
+}
+body {
+  @include content-color($body-color, $text-color);
 }
 #content {
   max-width: 950px;
   margin: auto;
   background: $bg-color;
   padding: 20px;
-}
-img {
-  padding: 2px;
-  border: 2px solid $base-color;
 
-  &.img-left {
-    @include block-place(left, 0 20px 10px 0);
-  }
-  &.img-right {
-    @include block-place(right, 0 0 5px 10px);
-  }
-}
-h1 {
-  text-align: center;
-  margin: 0;
-  text-transform: $text-transform;
-}
-h1,
-h2 {
-  color: $base-color;
-}
-.brief {
-  @include block-place(left, $brief-margin);
-  width: $brief-width;
-  background-color: $brief-color;
-  padding: 20px;
-  color: #000;
-}
-table {
-  border-collapse: collapse;
-  background: $table-bg-color;
-  margin-bottom: 50px;
+  img {
+    padding: 2px;
+    border: 2px solid $base-color;
 
-  th {
-    background: $table-secondary-color;
-    text-transform: uppercase;
-    font-weight: normal;
-    text-align: left;
-    padding: 9px 15px;
-    border-right: 2px solid #fff;
+    &.img-left {
+      @include block-place(left, 0 20px 10px 0);
+    }
+    &.img-right {
+      @include block-place(right, 0 0 5px 10px);
+    }
+  }
+  h2 {
+    color: $base-color;
+  }
+  h1 {
+    @extend h2;
+    text-align: center;
+    margin: 0;
+    text-transform: $text-transform;
+  }
+  .brief {
+    @include block-place(left, $brief-margin);
+    @include content-color($brief-color, #000);
+    width: $brief-width;
+    padding: 20px;
+  }
+  table {
+    border-collapse: collapse;
+    background: $table-bg-color;
+    margin-bottom: 50px;
 
-    &:last-of-type {
-      border: none;
+    th {
+      background: $table-secondary-color;
+      text-transform: uppercase;
+      font-weight: normal;
+      text-align: left;
+      padding: 9px 15px;
+      border-right: 2px solid #fff;
+
+      &:last-of-type {
+        border: none;
+      }
+    }
+    td {
+      padding: 7px 15px;
+      border-bottom: 1px solid $table-secondary-color;
+    }
+    caption {
+      text-align: right;
+    }
+    th,
+    caption {
+      color: #000;
     }
   }
-  td {
-    padding: 7px 15px;
-    border-bottom: 1px solid $table-secondary-color;
-  }
-  caption {
-    text-align: right;
-  }
-  th,
-  caption {
-    color: #000;
-  }
-}
-a {
-  @if $bg-color != #fff {
-    &:link {
-      color: $base-color;
-    }
-    &:hover {
-      color: $base-color-light;
-    }
-    &:active {
-      color: $base-color-dark;
-    }
-    &:visited {
-      color: $base-color-desaturate;
+  a {
+    @if $bg-color != #fff {
+      &:link {
+        color: $base-color;
+      }
+      &:hover {
+        color: $base-color-light;
+      }
+      &:active {
+        color: $base-color-dark;
+      }
+      &:visited {
+        color: $base-color-desaturate;
+      }
     }
   }
 }
@@ -106,13 +109,12 @@ form {
     height: 150px;
   }
   button {
+    @include content-color($bg-color, $bt-color);
     width: 240px;
     height: 50px;
     text-transform: uppercase;
     font-size: 1.3em;
     border: 1px solid $bt-color;
-    color: $bt-color;
-    background: $bg-color;
     margin-bottom: 15px;
   }
 }
