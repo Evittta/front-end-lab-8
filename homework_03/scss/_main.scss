@@ -1,3 +1,6 @@
+$table-bg-color: null !default;
+$table-caption-color: null !default;
+
 @mixin block-place($float, $margin...) {
   float: $float;
   margin: $margin;
@@ -6,6 +9,7 @@
   background-color: $background-color;
   color: $text-color;
 }
+
 body {
   @include content-color($body-color, $text-color);
 }
@@ -14,11 +18,9 @@ body {
   margin: auto;
   background: $bg-color;
   padding: 20px;
-
   img {
     padding: 2px;
     border: 2px solid $base-color;
-
     &.img-left {
       @include block-place(left, 0 20px 10px 0);
     }
@@ -45,7 +47,6 @@ body {
     border-collapse: collapse;
     background: $table-bg-color;
     margin-bottom: 50px;
-
     th {
       background: $table-secondary-color;
       text-transform: uppercase;
@@ -53,7 +54,6 @@ body {
       text-align: left;
       padding: 9px 15px;
       border-right: 2px solid #fff;
-
       &:last-of-type {
         border: none;
       }
@@ -67,7 +67,7 @@ body {
     }
     th,
     caption {
-      color: #000;
+      color: $table-caption-color;
     }
   }
   a {
@@ -86,35 +86,34 @@ body {
       }
     }
   }
-}
-form {
-  .item {
-    display: grid;
-    grid-gap: 16px;
-    grid-template-columns: 1fr 1fr;
-  }
-  label {
-    text-transform: uppercase;
-    color: $label-color;
-  }
-  input,
-  textarea {
-    width: 100%;
-    margin-top: 5px;
-    margin-bottom: 15px;
-    border: 1px solid $table-secondary-color;
-    padding: 4px;
-  }
-  textarea {
-    height: 150px;
-  }
-  button {
-    @include content-color($bg-color, $bt-color);
-    width: 240px;
-    height: 50px;
-    text-transform: uppercase;
-    font-size: 1.3em;
-    border: 1px solid $bt-color;
-    margin-bottom: 15px;
+  form {
+    .item {
+      display: grid;
+      grid-gap: 16px;
+      grid-template-columns: 1fr 1fr;
+    }
+    label {
+      text-transform: uppercase;
+      color: $label-color;
+    }
+    input,
+    textarea {
+      width: 100%;
+      margin: 5px 0 15px 0;
+      border: 1px solid $table-secondary-color;
+      padding: 4px;
+    }
+    textarea {
+      height: 150px;
+    }
+    button {
+      @include content-color($bg-color, $bt-color);
+      width: 240px;
+      height: 50px;
+      text-transform: uppercase;
+      font-size: 1.3em;
+      border: 1px solid $bt-color;
+      margin-bottom: 15px;
+    }
   }
 }
