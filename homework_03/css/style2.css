@@ -58,7 +58,7 @@ body {
     color: #fddd5c; }
   #content a:active {
     color: #d6ac03; }
-  #content form .item {
+  #content form .form-item {
     display: grid;
     grid-gap: 16px;
     grid-template-columns: 1fr 1fr; }
