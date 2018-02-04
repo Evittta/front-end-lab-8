@@ -65,6 +65,7 @@ h1::after {
   vertical-align: super;
   font-size: 19px;
   margin-left: -20px;
+  letter-spacing: 0;
 }
 h1 span {
   font-size: 70px;
@@ -72,14 +73,17 @@ h1 span {
 h1 + p {
   text-transform: capitalize;
   font-size: 14px;
+  margin-top: 0;
 }
 a button {
   margin-top: 20vh;
-  padding: 15px 60px;
+  padding: 20px 75px;
   background-color: #000;
   border: 2px solid #fff;
   color: #fff;
   opacity: 0.5;
+  text-transform: capitalize;
+  cursor: pointer;
 }
 a button:hover {
   opacity: 0.6;
