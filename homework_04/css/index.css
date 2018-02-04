@@ -147,7 +147,9 @@ article p:first-of-type {
   opacity: 0.7;
   cursor: pointer;
 }
-article p:first-of-type:hover,
+article p:first-of-type:hover {
+  color: #ff6600;
+}
 article p:first-of-type:active {
   color: #ff0000;
 }
@@ -167,15 +169,11 @@ article span {
   padding: 100px 0;
 }
 article + section {
-  background-color: #fff;
-  padding: 50px 60px;
-}
-article + section {
-  margin-top: 60px;
-}
-article + section {
   display: grid;
   grid-template-columns: 2fr 3fr;
+  margin-top: 60px;
+  background-color: #fff;
+  padding: 50px 60px;
 }
 article + section form input {
   width: 100%;
