@@ -106,7 +106,12 @@ footer p {
   header {
     padding: 15px 0;
   }
-  nav {
+  header img {
+    width: 150px;
+  }
+  nav,
+  footer .content .links {
+    display: flex;
     flex-direction: row;
     justify-content: center;
   }
@@ -123,8 +128,15 @@ footer p {
   h1 {
     background-color: transparent;
     top: 30px;
-    left: 90px;
+    left: 100px;
+    right: 100px;
     text-align: center;
+  }
+  article {
+    padding-bottom: 30px;
+  }
+  article img {
+    width: 76%;
   }
   article:hover {
     background-color: #39c2d7;
