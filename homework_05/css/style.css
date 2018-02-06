@@ -84,7 +84,7 @@ footer {
   text-align: center;
   font-weight: bold;
 }
-footer div:last-of-type {
+footer .links {
   display: flex;
   flex-direction: column;
 }
@@ -110,8 +110,7 @@ footer p {
     width: 150px;
   }
   nav,
-  footer .content .links {
-    display: flex;
+  footer .links {
     flex-direction: row;
     justify-content: center;
   }
@@ -151,7 +150,7 @@ footer p {
 @media (min-width: 900px) {
   section:last-of-type {
     grid-template-columns: repeat(3, 1fr);
-    margin: 20px auto;
+    margin: auto;
   }
   .content {
     max-width: 80%;
@@ -176,8 +175,13 @@ footer p {
     line-height: 40px;
     text-align: left;
   }
+  article {
+    padding-bottom: 20px;
+  }
+  article img {
+    width: 100%;
+  }
   footer {
-    padding: 20px 0;
     line-height: 20px;
   }
   nav,
@@ -187,10 +191,10 @@ footer p {
     flex-direction: row;
   }
   footer a {
+    margin: 0;
     margin-right: 20px;
   }
-
-  footer div:last-of-type {
-    margin-bottom: 15px;
+  footer p {
+    padding: 0;
   }
 }
