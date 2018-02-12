@@ -3,6 +3,7 @@ let maxPrize = 10;
 let totalPrize = 0;
 let maxRandom = 5;
 let win = false;
+let continueGame = true;
 let nextGame = true;
 
 if (game) {
@@ -21,12 +22,12 @@ if (game) {
       i = -1;
       win = true;
       numRandom = Math.floor(Math.random() * maxRandom + 1);
-      nextGame = confirm(`Do you want to continue game?`);
+      continueGame = confirm(`Do you want to continue game?`);
     } else {
       prize = Math.floor(maxPrize / (2 + i * 2));
       win = false;
     } 
-    if ( (i == 2 && !win) || !nextGame ) {
+    if ( (i == 2 && !win) || !continueGame ) {
       maxPrize = 10;
       prize = maxPrize;
       maxRandom = 5;
