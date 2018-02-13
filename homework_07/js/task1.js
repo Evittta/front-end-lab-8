@@ -1,10 +1,10 @@
-let floor = Number(prompt("Please enter natural number N (0 < N <= 20)", "7"));
+const floors = Number(prompt(`Please, enter natural number from 1 to 20 included`, `7`));
 let arr = [];
 let i = 0;
 
-if (floor > 0 && floor <= 20) {
-  while (i < floor) {
-    for (let j = 0; j < floor - i - 1; j++) {
+if ( floors > 0 && floors <= 20 && Number.isInteger(floors) ) {
+  while (i < floors) {
+    for (let j = 0; j < floors - i - 1; j++) {
       arr.push("   ");
     }
     for (let k = -1; k <= i * 2 - 1; k++) {
@@ -15,5 +15,5 @@ if (floor > 0 && floor <= 20) {
   }
   console.log(arr.join(""));
 } else {
-  console.error("Incorrect!");
+  console.error(`Incorrect!`);
 }
