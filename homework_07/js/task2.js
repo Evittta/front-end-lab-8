@@ -1,4 +1,4 @@
-let game = confirm(`Do you want to play a game?`);
+const game = confirm(`Do you want to play a game?`);
 let maxPrize = 10;
 let totalPrize = 0;
 let maxRandom = 5;
@@ -14,7 +14,7 @@ if (game) {
                          `Attempts left: ${3 - i}\n` +
                          `Total prize: ${totalPrize}$\n` +
                          `Possible prize on current attempt: ${prize}$`);
-    if ( numUser == numRandom && numUser != "" ) {
+    if ( Number(numUser) === numRandom && !isNaN(parseFloat(numUser)) ) {
       totalPrize += prize;
       maxRandom *= 2;
       maxPrize *= 3;
@@ -27,14 +27,16 @@ if (game) {
       prize = Math.floor(maxPrize / (2 + i * 2));
       win = false;
     } 
-    if ( (i == 2 && !win) || !continueGame ) {
+    if ( (i === 2 && !win) || !continueGame ) {
       maxPrize = 10;
       prize = maxPrize;
       maxRandom = 5;
       numRandom = Math.floor(Math.random() * maxRandom + 1);
-      nextGame = confirm(`Thank you for a game. Your prize is: ${totalPrize}$ \nDo you want to play again?`);
+      nextGame = confirm(`Thank you for a game. Your prize is: ${totalPrize}$\n` +
+                         `Do you want to play again?`);
       totalPrize = 0;
       i = -1;
+      continueGame = true;
     }
     if (!nextGame) {
       break;
