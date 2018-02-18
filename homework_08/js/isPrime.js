@@ -1,5 +1,5 @@
 let isPrime = num => {
-  if (num === 1) {
+  if (num <= 1) {
     return false;
   }
   for (let i = 2; i < num / 2; i++) {
