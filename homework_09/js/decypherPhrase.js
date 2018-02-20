@@ -1,9 +1,7 @@
 const decypherPhrase = (obj, str) => {
     const invertObj = {};
-    for (let i in obj) {
-        if ( obj.hasOwnProperty(i) ) {
-            invertObj[obj[i]] = i;
+    for (let key in obj) {
+            invertObj[obj[key]] = key;
         }
-    }
     return cypherPhrase(invertObj, str);
 };
