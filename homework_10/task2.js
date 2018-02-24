@@ -38,44 +38,24 @@ function fighter(stats) {
         hp: stats.hp,
         wins: 0,
         loses: 0,
-        getName: function ()  {
-            return this.name;
-        },
-        block: function () {
-            this.block = !!Math.floor(Math.random() * 2);
-            return this.block;s
-        },
-        getStats: function () {
-            stats = {
-                name: this.name,
-                attack: this.attack,
-                hp: this.hp
-            }
-            return stats;
-        },
-        getCombatHistory: function () {
-            combatHistory = {
-                wins: this.wins,
-                loses: this.loses
-            };
-            return combatHistory;
-        },
+        getName: () => stats.name,
+        block: () => !!Math.floor(Math.random() * 2),
+        getStats: () => stats,
+        getCombatHistory: () => combatHistory,
         fight: function (fighter) {
-            if (fighter.block()) {
+            if ( fighter.block() ) {
                 return false;
             } else {
-                if(fighter.hp > 0) {
-                    fighter.hp -= this.attack;
-                    if (fighter.hp === 0) {
-                        fighter.loses++;
-                        this.wins++;
-                    }
+                fighter.getStats().hp -= stats.attack;
+                if (fighter.getStats().hp <= 0) {
+                    fighter.getCombatHistory().loses++;
+                    combatHistory.wins++;
                 }
                 return true;
             }
         }
     }
-}
+} 
 
 /**
  * The following code must be valid after implementation!
