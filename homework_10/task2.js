@@ -46,7 +46,7 @@ function fighter(property) {
         block: () => !!Math.floor(Math.random() * 2),
         getStats: () => stats,
         getCombatHistory: () => combatHistory,
-        fight: function (fighter) {
+        fight: (fighter) => {
             if ( fighter.block() ) {
                 return false;
             } else {
