@@ -31,11 +31,13 @@ function showResult(fighter) {
   console.log('- Properties:', fighter.getStats());
 }
 
-function fighter(stats) {
+function fighter(property) {
+    const stats = {
+        name: property.name,
+        attack: property.attack,
+        hp: property.hp
+    }
     return {
-        name: stats.name,
-        attack: stats.attack,
-        hp: stats.hp,
         wins: 0,
         loses: 0,
         getName: () => stats.name,
