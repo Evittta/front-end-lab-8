@@ -37,7 +37,7 @@ function fighter(property) {
         attack: property.attack,
         hp: property.hp
     };
-    combatHistory = {
+    const combatHistory = {
         wins: 0,
         loses: 0
     };
