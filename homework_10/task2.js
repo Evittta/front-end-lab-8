@@ -36,10 +36,12 @@ function fighter(property) {
         name: property.name,
         attack: property.attack,
         hp: property.hp
-    }
-    return {
+    };
+    combatHistory = {
         wins: 0,
-        loses: 0,
+        loses: 0
+    };
+    return {
         getName: () => stats.name,
         block: () => !!Math.floor(Math.random() * 2),
         getStats: () => stats,
