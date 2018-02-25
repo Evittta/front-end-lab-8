@@ -26,9 +26,9 @@
  * DO NOT MODIFY
  */
 function showResult(fighter) {
-  console.log('Fighter', fighter.getName());
-  console.log('- Combat stats:', fighter.getCombatHistory());
-  console.log('- Properties:', fighter.getStats());
+    console.log('Fighter', fighter.getName());
+    console.log('- Combat stats:', fighter.getCombatHistory());
+    console.log('- Properties:', fighter.getStats());
 }
 
 function fighter(property) {
