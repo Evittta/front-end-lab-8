@@ -32,11 +32,7 @@ function showResult(fighter) {
 }
 
 function fighter(property) {
-    const stats = {
-        name: property.name,
-        attack: property.attack,
-        hp: property.hp
-    };
+    const stats = property;
     const combatHistory = {
         wins: 0,
         loses: 0
