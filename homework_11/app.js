@@ -13,11 +13,17 @@ function createTree(structure) {
     div.appendChild(elemI);
     div.appendChild(span);
     if (structure[i].folder) {
+      div.className = "folder";
       elemI.innerHTML = "folder";
       span.innerHTML = structure[i].title;
       if (structure[i].children) {
         let childrenUl = createTree(structure[i].children);
         li.appendChild(childrenUl);
+      } else {
+        const p = document.createElement("p");
+        li.appendChild(p);
+        p.innerHTML = "Folder is empty";
+        p.className = "empty-folder";
       }
     } else {
       span.innerHTML = structure[i].title;
