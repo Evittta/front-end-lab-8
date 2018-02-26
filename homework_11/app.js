@@ -1,4 +1,5 @@
 const rootNode = document.getElementById("root");
+
 function createTree(structure) {
   const ul = document.createElement("ul");
   for (let i = 0; i < structure.length; i++) {
@@ -32,6 +33,20 @@ function createTree(structure) {
     div.addEventListener("click", openFolder);
   }
   return ul;
+}
+
+function openFolder() {
+  const blockOpen = this.nextElementSibling;
+  if (blockOpen) {
+    const icon = this.firstChild;
+    if (blockOpen.style.display === "block") {
+      blockOpen.style.display = "none";
+      icon.innerHTML = "folder";
+    } else {
+      blockOpen.style.display = "block";
+      icon.innerHTML = "folder_open";
+    }
+  }
 }
 
 rootNode.appendChild(createTree(structure));
