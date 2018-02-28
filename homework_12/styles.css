@@ -1,0 +1,26 @@
+body {
+  background: #1c1c1f;
+  font-family: serif;
+}
+#root {
+  max-width: 100%;
+}
+h1 {
+  color: #a19e86;
+}
+.tanks-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
+img {
+  max-width: 200px;
+}
+.tank-thumbnail {
+  text-align: center;
+}
+span {
+  color: #d7d2b7;
+  text-transform: uppercase;
+  margin: 2px;
+  vertical-align: top;
+}
