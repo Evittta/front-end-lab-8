@@ -20,7 +20,7 @@ const addImgAtrr = (el, srcData, altData) => {
   el.setAttribute(`alt`, altData);
 };
 
-const createPage = () => {
+const createTanksPreview = () => {
   const container = document.createElement(`div`);
   const header = createElement(`header`, container);
   const headline = createElement(`h1`, header, `Most popular tanks`);
@@ -56,7 +56,7 @@ const createPage = () => {
   return container;
 };
 
-rootNode.appendChild( createPage() );
+rootNode.appendChild( createTanksPreview() );
 
 const getTankDetails = hashModel => {
   const container = document.createElement(`div`);
@@ -115,6 +115,6 @@ window.onhashchange = () => {
   if (location.hash) {
     rootNode.appendChild( getTankDetails(location.hash.substr(1)) );
   } else {
-    rootNode.appendChild( createPage() );
+    rootNode.appendChild( createTanksPreview() );
   }
 };
