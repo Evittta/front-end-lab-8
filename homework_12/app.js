@@ -57,7 +57,7 @@ const createPage = () => {
   return container;
 };
 
-rootNode.appendChild(createPage());
+rootNode.appendChild( createPage() );
 
 const getTankDetails = hashModel => {
   const container = document.createElement(`div`);
@@ -114,8 +114,8 @@ const createCell = (parent, data) => {
 window.onhashchange = () => {
   rootNode.removeChild(rootNode.firstChild);
   if (location.hash) {
-    rootNode.appendChild(getTankDetails(location.hash.substr(1)));
+    rootNode.appendChild( getTankDetails(location.hash.substr(1)) );
   } else {
-    rootNode.appendChild(createPage());
+    rootNode.appendChild( createPage() );
   }
 };
