@@ -15,6 +15,11 @@ const createWithTitleEl = (el, parent, titleData) => {
   return el;
 };
 
+const addImgAtrr = (el, srcData, altData) => {
+  el.setAttribute(`src`, srcData);
+  el.setAttribute(`alt`, altData);
+};
+
 const createPage = () => {
   const container = document.createElement(`div`);
   const header = createElement(`header`, container);
@@ -35,14 +40,14 @@ const createPage = () => {
     const aboutTank = createElement(`div`, tankThumbnail);
     const countryFlag = createWithTitleEl(`img`, aboutTank, `${tank.country}`);
     const tankLevel = createElement(`span`, aboutTank, `${tank.level}`);
-    tankLevel.className = `tank-level`;
     const tankName = createWithTitleEl(`span`, aboutTank, `${tank.model}`);
     tankThumbnail.className = `tank-thumbnail`;
+    tankLevel.className = `tank-level`;
     addImgAtrr(tankImg, `${tank.preview}`, `${tank.model} tank`);
     addImgAtrr(countryFlag, `${tank.country_image}`, `flag of ${tank.country}`);
     tankName.innerHTML = `${tank.model}`;
 
-    tankThumbnail.addEventListener("click", () => {
+    tankThumbnail.addEventListener(`click`, () => {
       location.hash = tank.model;
     });
   }
@@ -52,21 +57,7 @@ const createPage = () => {
   return container;
 };
 
-const addImgAtrr = (el, srcData, altData) => {
-  el.setAttribute(`src`, srcData);
-  el.setAttribute(`alt`, altData);
-};
-
 rootNode.appendChild(createPage());
-
-window.addEventListener("hashchange", () => {
-  rootNode.removeChild(rootNode.firstChild);
-  if (location.hash) {
-    rootNode.appendChild(getTankDetails(location.hash.substr(1)));
-  } else {
-    rootNode.appendChild(createPage());
-  }
-});
 
 const getTankDetails = hashModel => {
   const container = document.createElement(`div`);
@@ -118,4 +109,13 @@ const createTable = (i, tankPreview) => {
 
 const createCell = (parent, data) => {
   createElement(`td`, parent, data);
+};
+
+window.onhashchange = () => {
+  rootNode.removeChild(rootNode.firstChild);
+  if (location.hash) {
+    rootNode.appendChild(getTankDetails(location.hash.substr(1)));
+  } else {
+    rootNode.appendChild(createPage());
+  }
 };
