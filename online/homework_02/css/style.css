@@ -17,7 +17,7 @@ a:focus{color:#666;outline:0}ul{padding:0;margin:0}body{background-color:#f2f2f2
   div.tm-main-content {
     margin-top: 0;
   }
-  .tm-section-title {
+  .flex-2-col .tm-section-title {
     color: #0000ff !important;
   }
   .tm-banner {

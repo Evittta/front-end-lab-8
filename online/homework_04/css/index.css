@@ -155,7 +155,7 @@ article p:first-of-type:active {
 }
 article p:last-of-type {
   position: absolute;
-  left: 20px;
+  left: 10px;
   bottom: 10px;
   color: #fff;
   z-index: 2;
@@ -217,9 +217,6 @@ h5 {
 h5 + p {
   color: #9e9e9e;
   font-size: 12px;
-}
-.contact p {
-  line-height: 2.1em;
 }
 .tweet {
   font-style: italic;
