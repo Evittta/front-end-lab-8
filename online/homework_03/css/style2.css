@@ -1,0 +1,86 @@
+body {
+  background-color: rgba(198, 238, 252, 0.53);
+  color: #fff; }
+
+#content {
+  max-width: 950px;
+  margin: auto;
+  background: #3b3b3b;
+  padding: 20px; }
+  #content img {
+    padding: 2px;
+    border: 2px solid #fccd10; }
+    #content img.img-left {
+      float: left;
+      margin: 0 20px 10px 0; }
+    #content img.img-right {
+      float: right;
+      margin: 0 0 5px 10px; }
+  #content h2, #content h1 {
+    color: #fccd10; }
+  #content h1 {
+    text-align: center;
+    margin: 0;
+    text-transform: uppercase; }
+  #content .brief {
+    float: left;
+    margin: 0 0 40px 0;
+    background-color: #fff178;
+    color: #000;
+    width: 96%;
+    padding: 20px; }
+  #content table {
+    border-collapse: collapse;
+    background: #677d01;
+    margin-bottom: 50px; }
+    #content table th {
+      background: #94a34e;
+      text-transform: uppercase;
+      font-weight: normal;
+      text-align: left;
+      padding: 9px 15px;
+      border-right: 2px solid #fff; }
+      #content table th:last-of-type {
+        border: none; }
+    #content table td {
+      padding: 7px 15px;
+      border-bottom: 1px solid #94a34e; }
+    #content table caption {
+      text-align: right; }
+    #content table th,
+    #content table caption {
+      color: #000; }
+  #content a:link {
+    color: #fccd10; }
+  #content a:visited {
+    color: #e4be28; }
+  #content a:hover {
+    color: #fddd5c; }
+  #content a:active {
+    color: #d6ac03; }
+  #content form .form-item {
+    display: grid;
+    grid-gap: 16px;
+    grid-template-columns: 1fr 1fr; }
+  #content form label {
+    text-transform: uppercase;
+    color: #f5c70f; }
+  #content form input,
+  #content form textarea {
+    width: 100%;
+    margin: 5px 0 15px 0;
+    border: 1px solid #94a34e;
+    padding: 4px; }
+  #content form textarea {
+    height: 150px; }
+  #content form button {
+    background-color: #3b3b3b;
+    color: #f5c70f;
+    width: 240px;
+    height: 50px;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    border: 1px solid #f5c70f;
+    margin-bottom: 15px; }
+
+/*# sourceMappingURL=style2.css.map */

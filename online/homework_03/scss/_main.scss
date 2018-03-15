@@ -1,0 +1,116 @@
+$table-bg-color: null !default;
+$table-caption-color: null !default;
+
+@mixin block-place($float, $margin...) {
+  float: $float;
+  margin: $margin;
+}
+@mixin content-color($background-color, $text-color) {
+  background-color: $background-color;
+  color: $text-color;
+}
+@mixin link-color($state, $link-color) {
+  &:#{$state} {
+    color: $link-color;
+  }
+}
+
+body {
+  @include content-color($body-color, $text-color);
+}
+#content {
+  max-width: 950px;
+  margin: auto;
+  background: $bg-color;
+  padding: 20px;
+  img {
+    padding: 2px;
+    border: 2px solid $base-color;
+    &.img-left {
+      @include block-place(left, 0 20px 10px 0);
+    }
+    &.img-right {
+      @include block-place(right, 0 0 5px 10px);
+    }
+  }
+  h2 {
+    color: $base-color;
+  }
+  h1 {
+    @extend h2;
+    text-align: center;
+    margin: 0;
+    text-transform: $text-transform;
+  }
+  .brief {
+    @include block-place(left, $brief-margin);
+    @include content-color($brief-color, #000);
+    width: $brief-width;
+    padding: 20px;
+  }
+  table {
+    border-collapse: collapse;
+    background: $table-bg-color;
+    margin-bottom: 50px;
+    th {
+      background: $table-secondary-color;
+      text-transform: uppercase;
+      font-weight: normal;
+      text-align: left;
+      padding: 9px 15px;
+      border-right: 2px solid #fff;
+      &:last-of-type {
+        border: none;
+      }
+    }
+    td {
+      padding: 7px 15px;
+      border-bottom: 1px solid $table-secondary-color;
+    }
+    caption {
+      text-align: right;
+    }
+    th,
+    caption {
+      color: $table-caption-color;
+    }
+  }
+  a {
+    @if $bg-color != #fff {
+      @include link-color("link", $base-color);
+      @include link-color("visited", $base-desaturate-color);
+      @include link-color("hover", $base-light-color);
+      @include link-color("active", $base-dark-color);
+    }
+  }
+  form {
+    .form-item {
+      display: grid;
+      grid-gap: 16px;
+      grid-template-columns: 1fr 1fr;
+    }
+    label {
+      text-transform: uppercase;
+      color: $label-color;
+    }
+    input,
+    textarea {
+      width: 100%;
+      margin: 5px 0 15px 0;
+      border: 1px solid $table-secondary-color;
+      padding: 4px;
+    }
+    textarea {
+      height: 150px;
+    }
+    button {
+      @include content-color($bg-color, $bt-color);
+      width: 240px;
+      height: 50px;
+      text-transform: uppercase;
+      font-size: 1.3em;
+      border: 1px solid $bt-color;
+      margin-bottom: 15px;
+    }
+  }
+}

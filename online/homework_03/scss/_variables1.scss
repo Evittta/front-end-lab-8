@@ -1,0 +1,14 @@
+$base-color: #893c00;
+$base-light-color: lighten($base-color, 15%);
+$base-dark-color: darken($base-color, 10%);
+$base-desaturate-color: desaturate($base-color, 20%);
+$body-color: #dcbb9a;
+$bg-color: #fff;
+$text-color: #000;
+$bt-color: #3d70a1;
+$text-transform: capitalize;
+$table-secondary-color: #e0e0e0;
+$label-color: #808080;
+$brief-width: 40%;
+$brief-margin: 0 20px 10px 0;
+$brief-color: #fadcba;
