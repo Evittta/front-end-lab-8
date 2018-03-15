@@ -37,7 +37,7 @@ function fighter(stats) {
         loses: 0
     };
     return {
-        getName: function() { return stats.name },
+        getName: () => stats.name,
         block: () => !!Math.floor(Math.random() * 2),
         getStats: () => stats,
         getCombatHistory: () => combatHistory,
@@ -49,6 +49,7 @@ function fighter(stats) {
                 if (fighter.getStats().hp <= 0) {
                     fighter.getCombatHistory().loses++;
                     combatHistory.wins++;
+                    fighter.getStats().hp = 0;
                 }
                 return true;
             }
