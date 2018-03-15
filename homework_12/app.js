@@ -53,7 +53,6 @@ const createTanksPreview = () => {
   }
 
   location.hash = ``;
-  location.hash = `#`;
   return container;
 };
 
@@ -118,4 +117,8 @@ window.onhashchange = () => {
   } else {
     rootNode.appendChild( createTanksPreview() );
   }
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> 897e67adf50631d72602d67479a544af0c101171
