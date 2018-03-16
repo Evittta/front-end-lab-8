@@ -1,0 +1,23 @@
+.block(@color-block) {
+  background: @color-block;
+  border: 1px solid @color-block;
+}
+.related-class {
+  text-align: center;
+  color: @color-text;
+  p {
+    margin: 10px 0;
+  }
+}
+.cardio {
+  .block(@color-cardio);
+}
+.fitness {
+  .block(@color-main);
+}
+.zumba {
+  .block(@color-zumba);
+}
+.bootcamp {
+  .block(@color-bootcamp);
+}
