@@ -1,15 +1,3 @@
-const assign = function() {
-    for (let i = 1; i < arguments.length; i++) {
-        let data = arguments[i];
-        for (let key in data) {
-            if ( Object.prototype.hasOwnProperty.call(data, key) ) {
-                arguments[0][key] = data[key];
-            }
-        }
-    }
-    return arguments[0];
-};
-
 function Fighter(fighter) {
     this.name = fighter.name;
     this.attack = fighter.attack;
