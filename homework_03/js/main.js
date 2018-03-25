@@ -8,7 +8,7 @@ function Company(company) {
     _logs.push(`${this.name} was created in ${new Date()}`);
     this.addNewEmployee = function(employee) {
         if (employee instanceof Employee) {
-            if ( !employee._isWork ) {
+            if ( !employee._companyName ) {
                 if (_employees.length === this.maxCount) {
                     this.removeEmployee( getEmployeeWithSmallestSallary(employee) );
                 }
@@ -82,7 +82,7 @@ function Employee(employee) {
     this.salary = employee.salary;
     this.primarySkill = employee.primarySkill;
     this._timeStartWorking;
-    this._isWork;
+    this._companyName;
     let _timeEndWorking;
     let _timeInCompanies = 0;
     const _logs = [];
@@ -103,7 +103,7 @@ function Employee(employee) {
     }
     this.getWorkTimeInSeconds = function() {
         let _fullTimeInCompanies;
-        if (this._isWork) {
+        if (this._companyName) {
             _fullTimeInCompanies = _timeInCompanies + (new Date() - 
                                         this._timeStartWorking) / 1000;
             return _fullTimeInCompanies;
@@ -114,14 +114,14 @@ function Employee(employee) {
     }
     this.hire = function(startWorking, companyName) {
         this._timeStartWorking = startWorking;
-        this._isWork = true;
-        _logs.push(`${this.name} is hired to ${companyName} in ${this._timeStartWorking}`);
+        this._companyName = companyName;
+        _logs.push(`${this.name} is hired to ${this._companyName} in ${this._timeStartWorking}`);
     }
     this.fire = function(endWorking, companyName) {
         _timeEndWorking = endWorking;
-        this._isWork = false;
         _timeInCompanies += (_timeEndWorking - this._timeStartWorking) / 1000;
         _logs.push(`${this.name} is fired from ${companyName} in ${_timeEndWorking}`);
+        this._companyName = ``;
     }
     this.getHistory = function() {
         return _logs.join(`\n`);
