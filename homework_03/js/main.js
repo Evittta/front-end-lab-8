@@ -3,8 +3,9 @@ function Company(company) {
     this.owner = company.owner;
     this.maxCount = company.maxCompanySize;
     const _employees = [];
+    const _logs = [];
     let _timeStartWorking, _timeEndWorking;
-    let _logs = `${this.name} was created in ${new Date()}\n`;
+    _logs.push(`${this.name} was created in ${new Date()}`);
     this.addNewEmployee = function(employee) {
         if (employee instanceof Employee) {
             if ( !employee._isWork ) {
@@ -14,7 +15,7 @@ function Company(company) {
                 _employees.push(employee);
                 _timeStartWorking = new Date();
                 employee.hire(_timeStartWorking, this.name);
-                _logs += `${employee.name} starts working at ${this.name} in ${_timeStartWorking}\n`;
+                _logs.push(`${employee.name} starts working at ${this.name} in ${_timeStartWorking}`);
             } else {
                 console.error(`${employee.name} is working in other company`);
             }
@@ -26,7 +27,7 @@ function Company(company) {
         if ( Number.isFinite(id) && id >= 0 && id < _employees.length ) {
             _timeEndWorking = new Date();
             _employees[id].fire(_timeEndWorking, this.name);
-            _logs += `${_employees[id].name} ends working at ${this.name} in ${_timeEndWorking}\n`;
+            _logs.push(`${_employees[id].name} ends working at ${this.name} in ${_timeEndWorking}`);
             _employees.splice(id, 1);
         } else {
             console.error(`Please input number less than ${_employees.length}`);
@@ -44,12 +45,12 @@ function Company(company) {
         return _employees;
     }
     this.getFormattedListOfEmployees = function () {
-        let listOfEmployees = ``;
+        const listOfEmployees = [];
         for (let i = 0; i < _employees.length; i++) {
-            listOfEmployees += `${_employees[i].name} works in ${this.name} ${(new Date() - 
-                                _employees[i]._timeStartWorking) / 1000} seconds\n`;
+            listOfEmployees.push(`${_employees[i].name} works in ${this.name} ${(new Date() - 
+                                    _employees[i]._timeStartWorking) / 1000} seconds`);
         }
-        return listOfEmployees;
+        return listOfEmployees.join(`\n`);
     }
     this.getAverageAge = function() {
         let averageAge = 0;
@@ -60,7 +61,7 @@ function Company(company) {
         return averageAge;
     }
     this.getHistory = function() {
-        return _logs;
+        return _logs.join(`\n`);
     }
     function getEmployeeWithSmallestSallary(employee) {
         let minSalary = _employees[0].salary;
@@ -84,17 +85,17 @@ function Employee(employee) {
     this._isWork;
     let _timeEndWorking;
     let _timeInCompanies = 0;
-    let _logs = ``;
+    const _logs = [];
     this.getSalary = function() {
         return this.salary;
     }
     this.setSalary = function(newSalary) {
         if( Number.isFinite(newSalary) && newSalary > 0 ) {
             if (newSalary > this.salary) {
-                _logs += `change salary from ${this.salary} to ${newSalary}\n`;
+                _logs.push(`change salary from ${this.salary} to ${newSalary}`);
                 this.salary = newSalary;
             } else {
-                _logs += `try to change salary from ${this.salary} to ${newSalary}\n`;
+                _logs.push(`try to change salary from ${this.salary} to ${newSalary}`);
             }
         } else {
             console.error(`Please input number greater than 0`);
@@ -114,16 +115,16 @@ function Employee(employee) {
     this.hire = function(startWorking, companyName) {
         this._timeStartWorking = startWorking;
         this._isWork = true;
-        _logs += `${this.name} is hired to ${companyName} in ${this._timeStartWorking}\n`;
+        _logs.push(`${this.name} is hired to ${companyName} in ${this._timeStartWorking}`);
     }
     this.fire = function(endWorking, companyName) {
         _timeEndWorking = endWorking;
         this._isWork = false;
         _timeInCompanies += (_timeEndWorking - this._timeStartWorking) / 1000;
-        _logs += `${this.name} is fired from ${companyName} in ${_timeEndWorking}\n`;
+        _logs.push(`${this.name} is fired from ${companyName} in ${_timeEndWorking}`);
     }
     this.getHistory = function() {
-        return _logs;
+        return _logs.join(`\n`);
     }
 }
 
