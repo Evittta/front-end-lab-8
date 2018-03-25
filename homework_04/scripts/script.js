@@ -1,8 +1,14 @@
-/*function assign() {
-    for(let i = 0; i < arguments.length; i++) {
-
+const assign = function() {
+    for (let i = 1; i < arguments.length; i++) {
+        let data = arguments[i];
+        for (let key in data) {
+            if ( Object.prototype.hasOwnProperty.call(data, key) ) {
+                arguments[0][key] = data[key];
+            }
+        }
     }
-}*/
+    return arguments[0];
+};
 
 function Fighter(fighter) {
     this.name = fighter.name;
@@ -29,7 +35,7 @@ Fighter.prototype.setAttack = function(attack) {
     this.attack = attack;
 }
 Fighter.prototype.fight = function(enemy) {
-    if ( enemy.isAlive() ) {
+    if ( enemy.isAlive() && this !== enemy ) {
         if (this.isEnrage && this.enrageCount < 2) {
             enemy.hitpoints -= this.attack * 2;
             this.enrageCount++;
@@ -44,11 +50,7 @@ Fighter.prototype.fight = function(enemy) {
     }
 }
 Fighter.prototype.isAlive = function() {
-    if (this.hitpoints > 0) {
-        return true;
-    } else {
-        return false;
-    }
+    return this.hitpoints > 0;
 }
 
 function Champion() {
@@ -57,6 +59,7 @@ function Champion() {
 }
 Champion.prototype = Object.create(Fighter.prototype);
 Champion.prototype.constructor = Champion;
+
 Champion.prototype.heal = function() {
     this.hitpoints += 5;
     if (this.hitpoints > this.totalHitpoints) {
@@ -79,6 +82,7 @@ function Monster() {
 }
 Monster.prototype = Object.create(Fighter.prototype);
 Monster.prototype.constructor = Monster;
+
 Monster.prototype.enrage = function() {
     this.isEnrage = true;
 }
@@ -90,6 +94,6 @@ Monster.prototype.fury = function() {
     }
 }
 Monster.prototype.getPrize = function(enemy) {
-    Math.floor( this.hitpoints += enemy.totalHitpoints / 4 );
-    Math.floor( this.totalHitpoints += enemy.totalHitpoints / 10 );
+    this.hitpoints = Math.floor( this.hitpoints + enemy.totalHitpoints / 4 );
+    this.totalHitpoints = Math.floor( this.totalHitpoints + enemy.totalHitpoints / 10 );
 }
