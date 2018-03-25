@@ -7,7 +7,7 @@ function Company(company) {
     let _logs = `${this.name} was created in ${new Date()}\n`;
     this.addNewEmployee = function(employee) {
         if (employee instanceof Employee) {
-            if (!employee._isWork) {
+            if ( !employee._isWork ) {
                 if (_employees.length === this.maxCount) {
                     this.removeEmployee( getEmployeeWithSmallestSallary(employee) );
                 }
@@ -16,10 +16,10 @@ function Company(company) {
                 employee.hire(_timeStartWorking, this.name);
                 _logs += `${employee.name} starts working at ${this.name} in ${_timeStartWorking}\n`;
             } else {
-                console.log(`${employee.name} is working in other company`);
+                console.error(`${employee.name} is working in other company`);
             }
         } else {
-            console.log(`Please try to add Employee instance`);
+            console.error(`Please try to add Employee instance`);
         }
     }
     this.removeEmployee = function(id) {
@@ -29,7 +29,7 @@ function Company(company) {
             _logs += `${_employees[id].name} ends working at ${this.name} in ${_timeEndWorking}\n`;
             _employees.splice(id, 1);
         } else {
-            console.info(`Please input number less than ${_employees.length}`);
+            console.error(`Please input number less than ${_employees.length}`);
         }
     }
     this.getAverageSalary = function() {
@@ -47,7 +47,7 @@ function Company(company) {
         let listOfEmployees = ``;
         for (let i = 0; i < _employees.length; i++) {
             listOfEmployees += `${_employees[i].name} works in ${this.name} ${(new Date() - 
-                        _employees[i]._timeStartWorking) / 1000} seconds\n`;
+                                _employees[i]._timeStartWorking) / 1000} seconds\n`;
         }
         return listOfEmployees;
     }
@@ -97,7 +97,7 @@ function Employee(employee) {
                 _logs += `try to change salary from ${this.salary} to ${newSalary}\n`;
             }
         } else {
-            console.log(`Please input number greater than 0`);
+            console.error(`Please input number greater than 0`);
         }
     }
     this.getWorkTimeInSeconds = function() {
