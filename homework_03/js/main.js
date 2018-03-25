@@ -83,7 +83,7 @@ function Employee(employee) {
     this._timeStartWorking;
     this._isWork;
     let _timeEndWorking;
-    let _timeInCompany = 0;
+    let _timeInCompanies = 0;
     let _logs = ``;
     this.getSalary = function() {
         return this.salary;
@@ -101,10 +101,14 @@ function Employee(employee) {
         }
     }
     this.getWorkTimeInSeconds = function() {
+        let _fullTimeInCompanies;
         if (this._isWork) {
-            return _timeInCompany + (new Date() - this._timeStartWorking) / 1000;
+            _fullTimeInCompanies = _timeInCompanies + (new Date() - 
+                                        this._timeStartWorking) / 1000;
+            return _fullTimeInCompanies;
         } else {
-            return _timeInCompany;
+            _fullTimeInCompanies = _timeInCompanies;
+            return _fullTimeInCompanies;
         }
     }
     this.hire = function(startWorking, companyName) {
@@ -115,7 +119,7 @@ function Employee(employee) {
     this.fire = function(endWorking, companyName) {
         _timeEndWorking = endWorking;
         this._isWork = false;
-        _timeInCompany += (_timeEndWorking - this._timeStartWorking) / 1000;
+        _timeInCompanies += (_timeEndWorking - this._timeStartWorking) / 1000;
         _logs += `${this.name} is fired from ${companyName} in ${_timeEndWorking}\n`;
     }
     this.getHistory = function() {
