@@ -40,7 +40,7 @@ Fighter.prototype.fight = function(enemy) {
             if ( enemy.isAlive() && this.isAlive() ) {
                 if (enemy.isDefence) {
                     enemy.isDefence = false;
-                    if (this.isEnrage) {
+                    if (this.isEnrage && this.enrageCount < 2) {
                         this.enrageCount++;
                     }
                 } else if (this.isEnrage && this.enrageCount < 2) {
