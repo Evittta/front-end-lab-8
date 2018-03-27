@@ -32,7 +32,7 @@ Fighter.prototype.getAttack = function() {
     return this.attack;
 }
 Fighter.prototype.setAttack = function(attack) {
-    this.attack = attack;
+    this.attack = Math.floor(attack);
 }
 Fighter.prototype.fight = function(enemy) {
     if ( this instanceof Fighter && enemy instanceof Fighter ) {
