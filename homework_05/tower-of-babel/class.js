@@ -15,8 +15,8 @@ class Character {
   }
 }
 
-const x = process.argv[2];
-const y = process.argv[3];
-const character = new Character(+x, +y);
+let x = process.argv[2];
+let y = process.argv[3];
+let character = new Character(+x, +y);
 character.damage();
 console.log(character.toString());

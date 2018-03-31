@@ -29,13 +29,13 @@ class Player extends Character {
   }
 }
 
-const x = process.argv[2];
-const y = process.argv[3];
-const name = process.argv[4];
-const character = new Character(+x, +y);
+let x = process.argv[2];
+let y = process.argv[3];
+let name = process.argv[4];
+let character = new Character(+x, +y);
 character.damage();
 console.log(character.toString());
-const player = new Player(+x, +y, name);
+let player = new Player(+x, +y, name);
 player.damage();
 player.move(7, 8);
 console.log(player.toString());
