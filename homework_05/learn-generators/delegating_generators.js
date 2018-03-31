@@ -8,7 +8,7 @@ function* flat(arr) {
   }
 }
 
-let A = [1, [2, [3, 4], 5], 6];
-for (let f of flat(A)) {
+const A = [1, [2, [3, 4], 5], 6];
+for (const f of flat(A)) {
   console.log(f);
 }

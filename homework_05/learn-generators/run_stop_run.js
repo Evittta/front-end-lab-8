@@ -4,6 +4,6 @@ function* range(from, to) {
   }
 }
 
-for (let r of range(5, 10)) {
+for (const r of range(5, 10)) {
   console.log(r);
 }
