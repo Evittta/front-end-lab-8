@@ -1,0 +1,104 @@
+body {
+  background: #25bbae;
+  margin: 0;
+  padding: 0;
+}
+main {
+  width: 100%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.header {
+  background-color: #424a5a;
+  margin-top: 0;
+  color: #fff;
+  padding: 1px 50px;
+}
+.track-ip-button,
+.validate-button {
+  width: 200px;
+  padding: 15px 25px;
+  font-size: 20px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+  background-color: #44484e;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+}
+.track-ip-button:hover,
+.validate-button:hover {
+  background-color: #313338;
+}
+.track-ip-button:active,
+.validate-button:active {
+  background-color: #292a2b;
+}
+input {
+  margin: 120px 0 100px 0;
+  width: 60%;
+  padding: 15px 25px;
+  border: 2px solid #424a5a;
+  border-radius: 4px;
+}
+.validate-button {
+  margin-top: 50px;
+  display: none;
+}
+.communication {
+  text-align: center;
+  margin: auto;
+}
+table {
+  border-collapse: collapse;
+  width: 80%;
+  text-align: center;
+  margin-top: 40px;
+}
+td {
+  border: 1px solid #edf3f3;
+  padding: 10px;
+  color: #fff;
+}
+tr:nth-child(even) {
+  background-color: #21b1a5;
+}
+tr:nth-child(odd) {
+  background-color: #494f5c;
+}
+.answer {
+  margin-top: 40px;
+  font-size: 18px;
+  color: #313338;
+}
+.preloader-active {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.75;
+}
+.loader-active {
+  width: 75px;
+  height: 75px;
+  border: 15px solid #fff;
+  border-radius: 50%;
+  border-top-color: #0e8379;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: 1s spin infinite linear;
+}
+@keyframes spin {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
