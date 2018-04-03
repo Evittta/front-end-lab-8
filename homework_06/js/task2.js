@@ -42,7 +42,8 @@ const getDetails = info => {
   response = info;
   for (const key in data) {
     const tableRow = tableBody.insertRow();
-    createCell(tableRow, key);
+    const formattedKey = key.replace(/_/g, ` `);
+    createCell(tableRow, formattedKey);
     createCell(tableRow, data[key]);
   }
   togglePreloader();
