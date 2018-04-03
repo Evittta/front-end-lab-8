@@ -9,7 +9,7 @@ main {
   display: grid;
   grid-template-columns: 1fr 1fr;
 }
-.header {
+.heading {
   background-color: #424a5a;
   margin-top: 0;
   color: #fff;
