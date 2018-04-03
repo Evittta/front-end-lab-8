@@ -73,6 +73,9 @@ tr:nth-child(odd) {
   font-size: 18px;
   color: #313338;
 }
+.visible {
+  display: inline-block;
+}
 .preloader-active {
   position: fixed;
   left: 0;

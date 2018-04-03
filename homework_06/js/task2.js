@@ -46,7 +46,7 @@ const getDetails = info => {
     createCell(tableRow, data[key]);
   }
   togglePreloader();
-  validateResponseButton.style.display = `inline-block`;
+  validateResponseButton.classList.add(`visible`);
   answer.style.display = `none`;
 };
 
