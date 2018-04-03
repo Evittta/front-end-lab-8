@@ -25,8 +25,7 @@ const trackIP = () => {
   if (validateIP(ip)) {
     const url = `https://ipapi.co/${ip}/json`;
     http.get(url).then(getDetails, showError);
-    preloader.className = `preloader-active`;
-    loader.className = `loader-active`;
+    togglePreloader();
   } else {
     alert(`Please input correct IP address`);
   }
@@ -46,8 +45,7 @@ const getDetails = info => {
     createCell(tableRow, key);
     createCell(tableRow, data[key]);
   }
-  preloader.className = `preloader-end`;
-  loader.className = `loader-end`;
+  togglePreloader();
   validateResponseButton.style.display = `inline-block`;
   answer.style.display = `none`;
 };
@@ -59,15 +57,13 @@ const showError = statusCode => {
 const validateResponse = () => {
   const url = `https://shrouded-garden-94580.herokuapp.com/`;
   http.post(url, response).then(getAnswer, showError);
-  preloader.className = `preloader-active`;
-  loader.className = `loader-active`;
+  togglePreloader();
 };
 
 const getAnswer = data => {
   answer.innerHTML = data;
   answer.style.display = `block`;
-  preloader.className = `preloader-end`;
-  loader.className = `loader-end`;
+  togglePreloader();
 };
 
 const createCell = (parent, data) => {
@@ -77,11 +73,14 @@ const createCell = (parent, data) => {
   return cell;
 };
 
+const togglePreloader = () => {
+  preloader.classList.toggle(`preloader-active`);
+  loader.classList.toggle(`loader-active`);
+}
+
 const validateIP = ip => {
   return /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(ip);
 };
 
 document.getElementById(`track-ip`).addEventListener(`click`, trackIP);
-document
-  .querySelector(`.validate-button`)
-  .addEventListener(`click`, validateResponse);
+document.querySelector(`.validate-button`).addEventListener(`click`, validateResponse);
