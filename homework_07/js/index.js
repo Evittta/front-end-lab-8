@@ -20,14 +20,14 @@ let blackOrWhite = 0;
 const startGame = () => {
   removeStartGameButton();
   $(`.circle`).click(function() {
-    if (blackOrWhite % 2 === 0 && $(this).hasClass(`circle`)) {
+    if ( blackOrWhite % 2 === 0 && $(this).hasClass(`circle`) ) {
       const row = $(this).parent().index();
       const currentItem = $(this).index();   
       gameList[row][currentItem] = `white`;
       createColorCircle($(this), `white`);
       setCurrentPlayer(`.black-player`, `.white-player`);
       checkNeighborItems(row, currentItem, `white`);
-    } else if ($(this).hasClass(`circle`)) {
+    } else if ( $(this).hasClass(`circle`) ) {
       const row = $(this).parent().index();
       const currentItem = $(this).index();
       gameList[row][currentItem] = `black`;
@@ -131,8 +131,8 @@ const setCurrentPlayer = (nextPlayer, lastPlayer) => {
 const getWin = color => {
   $(`.start-game`).show(`fast`);
   $(`.winner`)
-    .find(`p`)
-    .text(`${color[0].toUpperCase()}${color.slice(1)} is the winner`);
+      .find(`p`)
+      .text(`${color[0].toUpperCase()}${color.slice(1)} is the winner`);
   $(`.start-button`).click(startNewGame);
   $(`.circles-wrap`).css({display: `none`});
 };
