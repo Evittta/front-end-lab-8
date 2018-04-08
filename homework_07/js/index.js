@@ -47,16 +47,16 @@ const checkNeighborItems = (row, currentItem, color) => {
 const checkInRow = (row, currentItem, color) => {
   let i = 1,
       j = 1;
-  let countOfCircles = 1;
+  let countCirclesInRow = 1;
   while (gameList[row][currentItem - i] === color && i < 4) {
-    countOfCircles++;
+    countCirclesInRow++;
     i++;
   }
   while (gameList[row][currentItem + j] === color && j < 4) {
-    countOfCircles++;
+    countCirclesInRow++;
     j++;
   }
-  if (countOfCircles >= 4) {
+  if (countCirclesInRow >= 4) {
     getWin(color);
   }
 };
@@ -64,16 +64,16 @@ const checkInRow = (row, currentItem, color) => {
 const checkInColumn = (row, currentItem, color) => {
   let i = 1,
       j = 1;
-  let sizeInColumn = 1;
+  let countCirclesInColumn = 1;
   while (row - i >= 0 && gameList[row - i][currentItem] === color) {
-    sizeInColumn++;
+    countCirclesInColumn++;
     i++;
   }
   while (row + j <= 15 && gameList[row + j][currentItem] === color) {
-    sizeInColumn++;
+    countCirclesInColumn++;
     j++;
   }
-  if (sizeInColumn >= 4) {
+  if (countCirclesInColumn >= 4) {
     getWin(color);
   }
 };
