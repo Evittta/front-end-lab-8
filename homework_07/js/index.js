@@ -1,21 +1,17 @@
-const $cellsWrap = $(`.cells-wrap`);
-const board = document.querySelector(`.circles-wrap`);
 const gameList = [];
 let blackOrWhite = 0;
 
 (() => {
   for (let i = 0; i < 15 * 15; i++) {
-    $cellsWrap.append(`<div class="cell"></div>`);
+    $(`.cells-wrap`).append(`<div class="cell"></div>`);
   }
   for (let i = 0; i < 16; i++) {
-    const row = document.createElement(`div`);
-    board.appendChild(row);
-    row.classList.add(`row`);
+    const row = $(`<div>`).addClass(`row`);
+    $(`.circles-wrap`).append(row);
     gameList[i] = [];
     for (let j = 0; j < 16; j++) {
-      const circle = document.createElement(`div`);
-      row.appendChild(circle);
-      circle.classList.add(`circle`);
+      const circle = $(`<div>`).addClass(`circle`);
+      row.append(circle);
       gameList[i][j] = `${j}`;
     }
   }
@@ -116,7 +112,7 @@ const checkInDiagonal = (row, currentItem, color) => {
 
 const startNewGame = () => {
   removeLastGame();
-  board.style.display = `grid`;
+  $(`.circles-wrap`).css({display: `grid`});
   removeGameList();
   startGame();
 };
@@ -138,7 +134,7 @@ const getWin = color => {
     .find(`p`)
     .text(`${color[0].toUpperCase()}${color.slice(1)} is the winner`);
   $(`.start-button`).click(startNewGame);
-  board.style.display = `none`;
+  $(`.circles-wrap`).css({display: `none`});
 };
 
 const removeStartGameButton = () => {
