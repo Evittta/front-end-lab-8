@@ -1,0 +1,110 @@
+.circles-wrap {
+  position: absolute;
+}
+.cells-wrap {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: repeat(15, 1fr);
+  grid-template-rows: repeat(15, 1fr);
+  background-color: #449e34;
+  padding: 20px;
+}
+.board {
+  width: 600px;
+  margin: auto;
+}
+.cell {
+  border: 1px solid black;
+}
+.row {
+  width: 600px;
+  display: grid;
+  grid-template-columns: repeat(16, 1fr);
+}
+.circle,
+.black,
+.white {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+div.circle:hover {
+  background-color: #c0c0c0;
+}
+.black {
+  background-color: #000;
+}
+.black:hover {
+  background-color: #000;
+}
+.white {
+  background-color: #fff;
+}
+.white:hover {
+  background-color: #fff;
+}
+p {
+  font-size: 24px;
+  margin: 0;
+  text-align: center;
+  border-radius: 20px;
+  color: white;
+}
+.start-game {
+  width: 500px;
+  height: 200px;
+  background-color: #000;
+  font-size: 20px;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  margin-left: 20px;
+}
+.start-button {
+  width: 400px;
+  height: 50px;
+  background-color: #3b862d;
+  font-size: 20px;
+  border-radius: 20px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  color: #fff;
+  margin-top: 20px;
+}
+.start-button:hover {
+  background-color: #4e9b40;
+}
+.start-button:active {
+  background-color: #347c27;
+}
+.players {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.players p {
+  color: black;
+  margin-right: 100px;
+  margin-left: 100px;
+}
+.game {
+  width: 100%;
+  margin: auto;
+}
+.current-player {
+  text-decoration: underline;
+}
+.winner p {
+  margin: 20px;
+  font-size: 34px;
+}

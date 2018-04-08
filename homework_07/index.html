@@ -2,14 +2,34 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png">
+  <title>Gomoku</title>
 </head>
 
 <body>
+  <div class="game">
+    <div class="players">
+      <p class="white-player">White</p>
+      <p class="black-player">Black</p>
+    </div>
+    <div class="start-game">
+      <div class="winner">
+        <p>Gomoku</p>
+        <button class="start-button">Start new game</button>
+      </div>
+    </div>
+    <div class="board">
+      <div class="cells-wrap"></div>
+      <div class="circles-wrap"></div>
+    </div>
+  </div>
 
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/index.js"></script>
 </body>
 
 </html>
