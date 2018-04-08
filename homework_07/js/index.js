@@ -1,7 +1,7 @@
 const gameList = [];
 let blackOrWhite = 0;
 
-(() => {
+(createBoard = () => {
   for (let i = 0; i < 15 * 15; i++) {
     $(`.cells-wrap`).append(`<div class="cell"></div>`);
   }
@@ -12,7 +12,7 @@ let blackOrWhite = 0;
     for (let j = 0; j < 16; j++) {
       const circle = $(`<div>`).addClass(`circle`);
       row.append(circle);
-      gameList[i][j] = `${j}`;
+      gameList[i][j] = j;
     }
   }
 })();
@@ -151,7 +151,7 @@ const removeLastGame = () => {
 const removeGameList = () => {
   for (let i = 0; i < 16; i++) {
     for (let j = 0; j < 16; j++) {
-      gameList[i][j] = `${j}`;
+      gameList[i][j] = j;
     }
   }
 };
