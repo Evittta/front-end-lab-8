@@ -44,7 +44,7 @@ exports.addNewMusician = (req, res) => {
 };
 
 exports.updateMusician = (req, res) => {
-  let rockstar = rockstars.find(
+  const rockstar = rockstars.find(
     rockstar => rockstar.id === Number(req.params.id)
   );
   if (!rockstar) {
