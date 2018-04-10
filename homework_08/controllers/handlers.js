@@ -49,6 +49,8 @@ exports.updateMusician = (req, res) => {
   );
   if (!rockstar) {
     res.sendStatus(404);
+  } else if (!req.body.name || !req.body.band || !req.body.instrument) {
+    res.status(400).send({ message: "Please update all data about musician" });
   } else {
     rockstar.name = req.body.name;
     rockstar.band = req.body.band;
