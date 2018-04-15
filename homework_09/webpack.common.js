@@ -30,6 +30,6 @@ module.exports = {
     new HtmlWebpackPlugin({ template: 'src/app.html' }),
     new ExtractTextPlugin('style.css'),
     new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/),
-    new CleanWebpackPlugin('bin')
+    new CleanWebpackPlugin(['bin'])
   ]
 };
