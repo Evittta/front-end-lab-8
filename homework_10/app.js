@@ -20,81 +20,73 @@ class NumberInput extends Input {
 	}
 }
 
-class TextInput extends Input {
-	constructor(placeHolder) {
-		super(placeHolder);
-		this.type = 'string';
+const decorateInput = function(input) {
+	if ( validateRequired(input.value) ) {
+		input.valid = true;
+	} else {
+		input.valid = false;
 	}
-}
+	input.setValue = addValidators(input.setValue, [
+		AddRequiredValidation,
+		AddMaxLengthValidation,
+		AddNumberValidation
+	]);
+};
 
-function addDecorator(f, checks) {
+const addValidators = function(setValue, validators) {
 	return function() {
-		for (var i = 0; i < checks.length; i++) {
-			if (!checks[i](arguments[0])) {
+		for (let i = 0; i < validators.length; i++) {
+			const validator = validators[i];
+			if ( !validator(arguments[0]) ) {
 				this.valid = false;
-				alert('Некорректный тип аргумента номер ' + i);
-				return;
+				return setValue.apply(this, arguments);
 			}
 		}
 		this.valid = true;
-		return f.apply(this, arguments);
+		return setValue.apply(this, arguments);
 	};
-}
+};
 
-const AddRequiredValidation = function(obj) {
-	if (obj) {
+const AddRequiredValidation = function(value) {
+	return validateRequired(value);
+};
+
+const AddMaxLengthValidation = function(value) {
+	const maxLength = 2;
+	if (value.toString().length <= maxLength) {
 		return true;
 	} else {
+		console.log('Input value length is bigger then max length');
 		return false;
 	}
 };
 
-const AddMaxLengthValidation = value => {
-	let maxLength = 2;
-	return value.toString().length < maxLength;
-};
-
-const AddNumberValidation = value => {
+const AddNumberValidation = function(value) {
 	if (typeof value === 'number') {
 		return true;
 	} else {
+		console.log('Input value is not a number');
+		return false;
+	}
+};
+
+const validateRequired = function(value) {
+	if (value !== undefined && value !== '') {
+		return true;
+	} else {
+		console.log('Input value is an empty string or undefined');
 		return false;
 	}
 };
 
 let numberInput = new NumberInput('Type numbers...');
-let textInput = new TextInput('Type string...');
-console.log(numberInput);
-//  Then you can create add validation decorators and add functionality to numberInput
-//  AddRequiredValidation Decorator that add required validation
-//  AddMaxLengthValidation Decorator that add max length validation
-//  AddNumberValidation Decorator for only number values validation
 
-numberInput.setValue = addDecoratore(numberInput.setValue, [
-	AddRequiredValidation,
-	AddMaxLengthValidation,
-	AddNumberValidation
-]);
-/*AddMaxLengthValidation(numberInput);
-AddNumberValidation(numberInput);*/
+decorateInput(numberInput);
 
-// The desired behaviour would be
-console.log(numberInput.valid); //---> false, because of required validator
+console.log(numberInput.valid);
 numberInput.setValue('1');
-console.log(numberInput.valid); //---> false, because of number validator
+console.log(numberInput.valid);
 numberInput.setValue(1);
-console.log(numberInput.valid); //---> true, all validators pass
+console.log(numberInput.valid);
 numberInput.setValue(1111111111111111111111111111);
-console.log(numberInput.valid); //---> false, because of max length validator
-
-// Notice after applying some validator to an object, it gets additional "valid" property;
-/*
-console.log("text");
-console.log(textInput.valid); //---> false, because of required validator
-textInput.setValue("1");
-console.log(textInput.valid); //---> true
-textInput.setValue(1);
-console.log(textInput.valid); //---> false
-textInput.setValue(1111111111111111111111111111);
-console.log(textInput.valid); //---> false, because of max length validator
-*/
+console.log(numberInput.valid);
