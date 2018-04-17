@@ -52,7 +52,7 @@ const AddRequiredValidation = function(value) {
 };
 
 const AddMaxLengthValidation = function(value) {
-	const maxLength = 5;
+	const maxLength = 3;
 	if (value.toString().length <= maxLength) {
 		return true;
 	} else {
