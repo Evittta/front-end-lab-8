@@ -82,17 +82,16 @@ __WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */].createInterfa
 for (let i = 0; i < __WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */].getButtons().length; i++) {
 	const button = __WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */].getButtons()[i];
 	const inputs = __WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */].getInputs();
+	const fieldForResult = __WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */].getFieldForResult();
 	button.addEventListener('click', () => {
-		if (validate(inputs, __WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */].getFieldForResult())) {
-			outputResult(__WEBPACK_IMPORTED_MODULE_0__calculating_module__["a" /* default */][button.dataset.func](Number(inputs[0].value), Number(inputs[1].value)), __WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */].getFieldForResult());
+		if (validate(inputs, fieldForResult)) {
+			outputResult(__WEBPACK_IMPORTED_MODULE_0__calculating_module__["a" /* default */][button.dataset.func](Number(inputs[0].value), Number(inputs[1].value)), fieldForResult);
 		}
 	});
 }
-
 const outputResult = (res, target) => {
 	target.innerHTML = res;
 };
-
 const validate = (inputs, target) => {
 	for (let i = 0; i < inputs.length; i++) {
 		const input = inputs[i];
