@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "./src/js/output-module.js",
 	"scripts": {
-		"start": "webpack-dev-server --open"
+		"start": "webpack"
 	},
 	"author": "",
 	"license": "ISC",

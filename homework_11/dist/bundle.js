@@ -77,21 +77,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-Object(__WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */])();
+__WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */].createInterface();
 
-const getResult = () => {
-	const inputs = document.getElementsByTagName('input');
-	const buttons = document.getElementsByTagName('button');
-	const result = document.getElementsByClassName('result')[0];
-	for (let i = 0; i < buttons.length; i++) {
-		const button = buttons[i];
-		button.addEventListener('click', () => {
-			if (validate(inputs, result)) {
-				outputResult(__WEBPACK_IMPORTED_MODULE_0__calculating_module__["a" /* default */][button.dataset.func](Number(inputs[0].value), Number(inputs[1].value)), result);
-			}
-		});
-	}
-};
+for (let i = 0; i < __WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */].getButtons().length; i++) {
+	const button = __WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */].getButtons()[i];
+	const inputs = __WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */].getInputs();
+	button.addEventListener('click', () => {
+		if (validate(inputs, __WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */].getFieldForResult())) {
+			outputResult(__WEBPACK_IMPORTED_MODULE_0__calculating_module__["a" /* default */][button.dataset.func](Number(inputs[0].value), Number(inputs[1].value)), __WEBPACK_IMPORTED_MODULE_1__interface_module__["a" /* default */].getFieldForResult());
+		}
+	});
+}
 
 const outputResult = (res, target) => {
 	target.innerHTML = res;
@@ -108,8 +104,6 @@ const validate = (inputs, target) => {
 	return true;
 };
 
-getResult();
-
 /***/ }),
 /* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -117,8 +111,8 @@ getResult();
 "use strict";
 const add = (firstNumber, secondNumber) => firstNumber + secondNumber;
 const minus = (firstNumber, secondNumber) => firstNumber - secondNumber;
-const multiplication = (firstNumber, secondNumber) => firstNumber * secondNumber;
-const division = (firstNumber, secondNumber) => {
+const multiply = (firstNumber, secondNumber) => firstNumber * secondNumber;
+const divide = (firstNumber, secondNumber) => {
 	if (secondNumber) {
 		return firstNumber / secondNumber;
 	} else {
@@ -129,8 +123,8 @@ const division = (firstNumber, secondNumber) => {
 /* harmony default export */ __webpack_exports__["a"] = ({
 	add,
 	minus,
-	multiplication,
-	division
+	multiply,
+	divide
 });
 
 /***/ }),
@@ -140,29 +134,27 @@ const division = (firstNumber, secondNumber) => {
 "use strict";
 const root = document.getElementsByClassName('root')[0];
 
-/* harmony default export */ __webpack_exports__["a"] = (() => {
+const createInterface = () => {
 	const inputsContainer = document.createElement('div');
 	const buttonsContainer = document.createElement('div');
-	const result = document.createElement('p');
-	result.classList.add('result');
+	const fieldForResult = document.createElement('p');
+	fieldForResult.classList.add('result');
 	root.appendChild(inputsContainer);
 	root.appendChild(buttonsContainer);
-	root.appendChild(result);
+	root.appendChild(fieldForResult);
 	createInput(inputsContainer);
 	createInput(inputsContainer);
 	createButton(buttonsContainer, '+', 'add');
 	createButton(buttonsContainer, '-', 'minus');
-	createButton(buttonsContainer, '÷', 'division');
-	createButton(buttonsContainer, '×', 'multiplication');
-});
-
+	createButton(buttonsContainer, '÷', 'divide');
+	createButton(buttonsContainer, '×', 'multiply');
+};
 const createInput = parent => {
 	const input = document.createElement('input');
 	parent.appendChild(input);
 	input.classList.add('input');
 	input.setAttribute('placeholder', 'Please input number');
 };
-
 const createButton = (parent, content, func) => {
 	const button = document.createElement('button');
 	parent.appendChild(button);
@@ -170,6 +162,22 @@ const createButton = (parent, content, func) => {
 	button.classList.add('button');
 	button.innerHTML = content;
 };
+const getInputs = () => {
+	return document.getElementsByTagName('input');
+};
+const getButtons = () => {
+	return document.getElementsByTagName('button');
+};
+const getFieldForResult = () => {
+	return document.getElementsByClassName('result')[0];
+};
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+	createInterface,
+	getInputs,
+	getButtons,
+	getFieldForResult
+});
 
 /***/ }),
 /* 3 */

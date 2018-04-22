@@ -1,7 +1,7 @@
 const add = (firstNumber, secondNumber) => firstNumber + secondNumber;
 const minus = (firstNumber, secondNumber) => firstNumber - secondNumber;
-const multiplication = (firstNumber, secondNumber) => firstNumber * secondNumber;
-const division = (firstNumber, secondNumber) => {
+const multiply = (firstNumber, secondNumber) => firstNumber * secondNumber;
+const divide = (firstNumber, secondNumber) => {
 	if (secondNumber) {
 		return firstNumber / secondNumber;
 	} else {
@@ -12,6 +12,6 @@ const division = (firstNumber, secondNumber) => {
 export default {
 	add,
 	minus,
-	multiplication,
-	division
+	multiply,
+	divide
 };

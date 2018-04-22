@@ -28,8 +28,5 @@ module.exports = {
 		new HtmlWebpackPlugin({ template: 'src/index.html' }),
 		new ExtractTextPlugin('styles.css')
 	],
-	devServer: {
-		open: true
-	},
 	watch: true
 };
