@@ -1,77 +1,128 @@
 body {
-    padding: 20px;
-    font: normal 14px/1.2 Arial, sans-serif;
+	padding: 20px;
+	font: normal 14px/1.2 Arial, sans-serif;
 }
 
 .hidden {
-    display: none;
+	display: none;
 }
 
 .wrapper {
-    overflow: hidden;
+	overflow: hidden;
 }
-
 
 /**************/
 /* Names list */
 .names {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    width: 300px;
-    float: left;
-    margin-right: 2px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	width: 300px;
+	float: left;
+	margin-right: 2px;
 }
 .names li {
-    background: #00BCD4;
-    margin: 0 0 1px 0;
-    padding: 10px;
-    color: #fff;
-    cursor: pointer;
-    display: block;
+	background: #00bcd4;
+	margin: 0 0 1px 0;
+	padding: 10px;
+	color: #fff;
+	cursor: pointer;
+	display: block;
 }
 
 /***************/
 /* Scores list */
 .scores {
-    width: 80px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    float: left;
-    margin-right: 30px;
+	width: 80px;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	float: left;
+	margin-right: 30px;
 }
 .scores li {
-    margin: 0 0 1px 0;
-    padding: 10px 0;
-    color: #fff;
-    cursor: pointer;
-    display: block;
-    background: #727272;
-    text-align: center;
+	margin: 0 0 1px 0;
+	padding: 10px 0;
+	color: #fff;
+	cursor: pointer;
+	display: block;
+	background: #727272;
+	text-align: center;
 }
 .scores span {
-    pointer-events: none;
+	pointer-events: none;
 }
 .score-input {
-    width: 35px;
-    height: 9px;
-    text-align: center;
+	width: 35px;
+	height: 9px;
+	text-align: center;
 }
 
 /***********/
 /* Profile */
 .profile {
-    float: left;
-    width: 200px;
-    background: #448AFF;
-    padding: 0 10px;
-    text-align: center;
+	float: left;
+	width: 200px;
+	background: #448aff;
+	padding: 0 10px;
+	text-align: center;
 }
 .profile img {
-    display: block;
-    margin: 10px auto 10px;
+	display: block;
+	margin: 10px auto 10px;
 }
 .profile h3 {
-    margin: 0 0 10px;
+	margin: 0 0 10px;
+}
+
+/*****************/
+/* Sort controls */
+.sort-controls {
+	padding: 0;
+	margin: 0;
+	width: 382px;
+}
+.sort-names {
+	margin: 0;
+	border: 1px solid #c0c0c0;
+	padding: 20px 10px;
+	cursor: pointer;
+	display: block;
+	width: 279px;
+	float: left;
+	position: relative;
+}
+.sort-scores {
+	margin: 0;
+	padding: 20px 10px;
+	border: 1px solid #c0c0c0;
+	cursor: pointer;
+	display: block;
+	width: 59px;
+	float: right;
+	position: relative;
+}
+.names-asc,
+.scores-asc {
+	border: 5px solid transparent;
+	border-top: 7px solid #727272;
+	position: absolute;
+	top: 29px;
+	right: 8px;
+}
+.names-desc,
+.scores-desc {
+	border: 5px solid transparent;
+	border-bottom: 7px solid #727272;
+	position: absolute;
+	top: 14px;
+	right: 8px;
+}
+.names-desc.active,
+.scores-desc.active {
+	border-bottom: 7px solid #00bcd4;
+}
+.names-asc.active,
+.scores-asc.active {
+	border-top: 7px solid #00bcd4;
 }
