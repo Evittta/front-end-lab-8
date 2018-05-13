@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+  <title>World of animals</title>
+</head>
+
+<body ng-app="app" ng-controller="Ctrl as ctrl">
+  <div class="wrapper">
+    <div></div>
+    <div class="main">
+      <div ng-repeat="post in ctrl.allPosts | filter: {title: search}">
+        <div class="post">
+          <div class="article-img" style="background-image: url({{post.url}})">
+            <h2 class="title" ng-if="!ctrl.isEditing">{{post.title}}</h2>
+          </div>
+          <input ng-if="ctrl.isEditing" type="text" value="{{post.title}}" ng-model="post.title">
+          <span class="categories" ng-repeat="category in post.categories" value="{{category}}">
+            {{category}}</span>
+          <p ng-if="!ctrl.isEditing">{{post.description}}</p>
+          <textarea ng-if="ctrl.isEditing" ng-model="post.description" value="{{post.description}}">
+            {{post.description}}</textarea>
+          <div class="button-edit">
+            <button class="button" ng-if="!ctrl.isEditing" ng-click="ctrl.editPost()">Edit</button>
+          </div>
+          <div class="button-wrapper" ng-if="ctrl.isEditing">
+            <button ng-click="ctrl.updatePost(post)" class="button">Save</button>
+            <p ng-if="ctrl.error">All fields are required</p>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="button-wrapper">
+          <button class="button" ng-click="ctrl.addingNewPost=true">add</button>
+        </div>
+        <div ng-if="ctrl.addingNewPost">
+          <form name="postForm" novalidate>
+            <div class="new-post">
+              <label for="title">Title</label>
+              <input if="title" type="text" placeholder="Title" ng-model="newPost.title" required>
+            </div>
+            <div class="new-post">
+              <label for="categories">Categories</label>
+              <input id="categories" type="text" ng-model="newPost.categories" 
+                placeholder="Categories" required>
+            </div>
+            <div class="new-post">
+              <label for="description">Description</label>
+              <textarea id="description" ng-model="newPost.description" placeholder="Description" 
+                required></textarea>
+            </div>
+            <div class="new-post">
+              <label for="photo">Photo</label>
+              <input id="photo" type="text" ng-model="newPost.url" placeholder="Photo">
+            </div>
+            <div class="button-wrapper">
+              <button class="button" type="submit" ng-disabled="postForm.$invalid" 
+                ng-click="ctrl.addNewPost(newPost)">add</button>
+              <p ng-if="postForm.$invalid">Tip: all fields are required</p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="categories-container">
+      <div class="categories-list">
+        <h3>Categories</h3>
+        <ul ng-repeat="category in ctrl.categories">
+          <li class="category" ng-click="ctrl.filterPost(category)">{{category}}</li>
+        </ul>
+        <h4>Search</h4>
+        <input type="text" ng-model="search" placeholder="Input search world">
+      </div>
+    </div>
+  </div>
+
+  <script type="text/javascript" src="lib/angular.min.js"></script>
+  <script src="src/data.js"></script>
+  <script src="src/app.js"></script>
+</body>
+
+</html>
