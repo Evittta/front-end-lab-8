@@ -15,12 +15,11 @@
     <div class="main">
       <div ng-repeat="post in ctrl.allPosts | filter: {title: search}">
         <div class="post">
-          <div class="article-img" style="background-image: url({{post.url}})">
-            <h2 class="title" ng-if="!ctrl.isEditing">{{post.title}}</h2>
-          </div>
+          <img src="{{post.url}}" alt="{{post.title}}">
+          <h2 class="title" ng-if="!ctrl.isEditing">{{post.title}}</h2>
           <input ng-if="ctrl.isEditing" type="text" value="{{post.title}}" ng-model="post.title">
-          <span class="categories" ng-repeat="category in post.categories" value="{{category}}">
-            {{category}}</span>
+          <p><span class="categories" ng-repeat="category in post.categories" value="{{category}}">
+            {{category}}</span></p>
           <p ng-if="!ctrl.isEditing">{{post.description}}</p>
           <textarea ng-if="ctrl.isEditing" ng-model="post.description" value="{{post.description}}">
             {{post.description}}</textarea>
