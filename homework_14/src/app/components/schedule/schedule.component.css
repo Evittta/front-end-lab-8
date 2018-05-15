@@ -1,0 +1,26 @@
+.schedule {
+  max-width: 80%;
+  margin: 0;
+}
+.col {
+  width: 25%;
+  text-align: center;
+  border: 1px solid #000;
+}
+p.col {
+  margin: 0;
+  padding: 0;
+}
+.col-input {
+  margin: 0 1%;
+  width: 23%;
+}
+.class {
+  max-width: 100%;
+  margin: 0;
+  display: flex;
+}
+.button {
+  padding: 5px 15px;
+  margin-bottom: 5px;
+}

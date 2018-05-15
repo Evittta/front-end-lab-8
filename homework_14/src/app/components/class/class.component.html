@@ -1,0 +1,15 @@
+<div class="class">
+  <p class="col">{{class.id}}</p>
+  <p *ngIf="!isEditing" class="col">{{class.topic}}</p>
+  <input *ngIf="isEditing" class="col-input" type="text" [(ngModel)]="newClass.topic" name="topic">
+  <p *ngIf="!isEditing" class="col">{{class.date}}</p>
+  <input *ngIf="isEditing" class="col-input" type="date" [(ngModel)]="newClass.date" name="date">
+  <p *ngIf="!isEditing" class="col">{{class.lecturer}}</p>
+  <input *ngIf="isEditing" class="col-input" type="text" [(ngModel)]="newClass.lecturer" name="lecturer">
+  <p class="col">
+    <button *ngIf="!isEditing" (click)="startEdit()">✎</button>
+    <button *ngIf="isEditing" (click)="edit()">✓</button>
+    <button *ngIf="isEditing" (click)="discardChanges(newClass)">✖</button>
+    <button *ngIf="!isEditing" (click)="removeClass()">🗑</button>
+  </p>
+</div>
